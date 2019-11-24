@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- JS -->
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+    <!-- TITLE -->
+    <title>Annonymous-messenger</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div id="main-header">
+            <header>
+                <h1>#Messenger</h1>
+            </header>
+        </div>
+        <div id="name">
+            <!-- name goes here-->
+        </div>
+        <div id="channels" class="channels">
+
+            <div id="channel_list">
+                <h4>Channels</h4>
+                <ul id="rooms">
+                    <!-- rooms list here -->
+                    {% for room in rooms %}
+                    <li class="room_list_item">{{ room.name }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Online</h4>
+                <ul id="users">
+                    <!-- users online go here-->
+                    {% for user in users %}
+                    <li class="user_list_item">{{ user }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <form action="" id="create_channel">
+            <input type="text" id="channel_name" name="channel_name"></input>
+            <button type="submit" id="create_channel_btn">Create Channel</button>
+        </form>
+        <div id="chat">
+            <ul id="text">
+                <!-- msgs go here  -->
+            </ul>
+        </div>
+        <form action="" id="msg">
+            <!-- type msg here -->
+            <input id="msg_input" type="text"></input>
+            <button type="submit" id="send"><i class="fa fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+</body>
+
+</html>
